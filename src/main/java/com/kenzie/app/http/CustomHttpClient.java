@@ -1,18 +1,13 @@
 package com.kenzie.app.http;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kenzie.app.dto.Clues;
-import com.kenzie.app.dto.CluesDTO;
+
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Collections;
-import java.util.List;
+
 
 public class CustomHttpClient {
 

@@ -14,20 +14,6 @@ import java.util.Scanner;
 public class Main {
     static final String URL = "https://jservice.kenzie.academy/api/clues";
 
-    public Main() throws JsonProcessingException {
-    }
-
-    /* Java Fundamentals Capstone project:
-           - Define as many variables, properties, and methods as you decide are necessary to
-           solve the program requirements.
-           - You are not limited to only the class files included here
-           - You must write the HTTP GET call inside the CustomHttpClient.sendGET(String URL) method
-             definition provided
-           - Your program execution must run from the main() method in Main.java
-           - The rest is up to you. Good luck and happy coding!
-
-         */
-
 
     public static void main(String[] args) throws JsonProcessingException {
         //Write main execution code here
@@ -49,7 +35,7 @@ public class Main {
         System.out.println("Welcome to Jeopardy!!!");
         System.out.println("You will be asked 10 questions one at a time\n");
 
-            for (int i = randomQuestion(0);  i < cluesObj.getClues().size(); i++) {
+            for (int i = randomQuestion(0);  i < cluesObj.getClues().size(); i++) {  //loop through the questions
 
                 if (questionNumber < 10) {
                     questionNumber++;
@@ -63,7 +49,8 @@ public class Main {
                 if (response.equalsIgnoreCase(answer)) {
                     currentTotalPoints++;
                     System.out.println("Congratulations, that is Correct!");
-                } else if (response.equals("")) {
+
+                } else if (response.equals("") || response.equals(" ")) {  //check for blank responses or a space
                     System.out.println("Please enter a valid response.");
                     questionNumber--;
                     
@@ -73,6 +60,7 @@ public class Main {
                     System.out.println("Total Points: " + currentTotalPoints + "\n");
                 }
         }
+        System.out.println("Thank you for playing Jeopardy");
     }
 
     public static int randomQuestion(int number) {
@@ -80,9 +68,9 @@ public class Main {
         int max = 100;
         int min = 1;
         Random randomNum = new Random();
-        int i = min + randomNum.nextInt(max);
+        number = min + randomNum.nextInt(max);
 
-        return i;
+        return number;
     }
 }
 
